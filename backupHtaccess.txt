@@ -1,0 +1,6 @@
+suPHP_ConfigPath /home/preesco/
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^preescolartec\.com\.ve$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.preescolartec\.com\.ve$
+RewriteRule ^/?$ "http\:\/\/www\.preescolartec\.com\/" [R=301,L]

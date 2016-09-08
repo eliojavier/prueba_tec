@@ -1,0 +1,23 @@
+{
+  "name": "siap",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery.maskedinput": "^1.4.1"
+  },
+  "devDependencies": {
+    "font-awesome": "^4.6.3",
+    "metisMenu": "^2.5.2",
+    "bootstrap-datepicker": "^1.6.1"
+  }
+}
