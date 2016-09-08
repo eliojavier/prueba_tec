@@ -105,7 +105,6 @@
                                 <li><a href="{{url('level', ['id' => '2'])}}">Nivel II</a></li>
                                 <li><a href="{{url('level', ['id' => '3'])}}">Nivel III</a></li>
                                 <li><a href="{{url('level', ['id' => '4'])}}">Nivel IV</a></li>
-
                             </ul>
                         </li>
                         <li class="dropdown">
