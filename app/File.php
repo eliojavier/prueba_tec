@@ -50,6 +50,11 @@ class File extends Model
         return $this->belongsTo(Gallery::class);
     }
 
+    public function album()
+    {
+        return $this->belongsTo(Album::class);
+    }
+
     /**
      * @param $name
      * @return mixed
