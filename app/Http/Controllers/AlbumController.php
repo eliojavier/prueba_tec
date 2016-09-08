@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
+use App\Http\Requests\AlbumRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,10 +17,11 @@ class AlbumController extends Controller
      */
     public function index()
     {
+        $albums = Album::latest('created_at')->paginate(4);
         $levels = array('Nivel 1' => 'Nivel 1', 'Nivel 2' => 'Nivel 2', 'Nivel 3' => 'Nivel 3',
                         'Nivel 4' => 'Nivel 4', 'Baby TEC' => 'Baby TEC');
         
-        return view('albums.index', compact('levels'));
+        return view('albums.index', compact('albums', 'levels'));
     }
 
     /**
@@ -34,12 +37,16 @@ class AlbumController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param AlbumRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AlbumRequest $request)
     {
-        //
+        Album::create($request->all());
+
+        return redirect('admin/albums')->with([
+            'flash_message_success' => 'Álbum creado exitosamente.'
+        ]);
     }
 
     /**
@@ -48,9 +55,9 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Album $album)
     {
-        //
+        return view('albums.show', compact('album'));
     }
 
     /**
