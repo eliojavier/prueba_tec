@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use App\Album;
 use App\Http\Requests\AlbumRequest;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use App\Http\Requests;
 use Illuminate\Support\Facades\Response;
+use App\Http\Requests;
+use App\File;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+
+
+
+
+
+
+
 
 class AlbumController extends Controller
 {
@@ -69,8 +79,9 @@ class AlbumController extends Controller
      * @return \Illuminate\Http\Response
      * @internal param int $id
      */
-    public function edit(Album $album)
+    public function edit($id)
     {
+        $album = Album::findOrFail($id);
         $levels = array('Nivel 1' => 'Nivel 1', 'Nivel 2' => 'Nivel 2', 'Nivel 3' => 'Nivel 3',
             'Nivel 4' => 'Nivel 4', 'Baby TEC' => 'Baby TEC');
         return view('albums.edit', compact('album', 'preview', 'levels'));
@@ -112,8 +123,9 @@ class AlbumController extends Controller
     /**
      * Bulk upload o photos.
      * @param Request $request
-     * @param Gallery $gallery
+     * @param Album $album
      * @return
+     * @internal param Gallery $gallery
      */
     public function addPhoto(Request $request, Album $album)
     {
@@ -135,8 +147,9 @@ class AlbumController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Gallery $gallery
+     * @param Album $album
      * @return Response
+     * @internal param Gallery $gallery
      */
     public function gallery(Album $album)
     {

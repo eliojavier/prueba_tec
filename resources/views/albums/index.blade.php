@@ -19,6 +19,7 @@
             {{ $albums->links() }}
             @foreach($albums as $album)
                 <div class="row">
+                    <p class="col-md-6"><strong>Nivel:</strong> {{$album->level}}</p>
                     <p class="col-md-6"><strong>Nombre:</strong> {{$album->name}}</p>
                     <p class="col-md-6"><strong>Visibilidad:</strong> {{$album->display_visibility}}</p>
                     <p class="col-md-6"><strong>tipo:</strong> {{$album->type}}</p>
@@ -32,7 +33,7 @@
                             <i class="fa fa-eye" aria-hidden="true"></i>
                             Ver
                         </a>
-                        <a href="{{route('admin.albums.edit',$album)}}" class="btn btn-sm btn-primary ">
+                        <a href="{{route('admin.albums.edit', $album->id)}}" class="btn btn-sm btn-primary ">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             Editar
                         </a>

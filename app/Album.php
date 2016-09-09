@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
 {
+    /**
+     * @var array
+     */
+    protected $appends = ['display_visibility'];
+    /**
+     * @var array
+     */
+    
     protected $fillable = [
         'level',
         'name',
@@ -23,6 +31,11 @@ class Album extends Model
     public function getDisplayVisibilityAttribute()
     {
         return ($this->visibility ? 'oculto' : 'publico');
+    }
+
+    public function setSlugAttribute()
+    {
+        $this->attributes['slug'] = str_slug($this->name);
     }
 
     /**

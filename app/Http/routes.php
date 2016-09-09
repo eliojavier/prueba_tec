@@ -56,7 +56,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('galleries/{gallery}/photo', ['as' => 'admin.galleries.photo', 'uses' => 'GalleryController@addPhoto']);
     Route::resource('galleries', 'GalleryController');
     
-    //
+
     Route::post('albums/{album}/photo', ['as' => 'admin.albums.photo', 'uses' => 'AlbumController@addPhoto']);
     Route::resource('albums', 'AlbumController');
 

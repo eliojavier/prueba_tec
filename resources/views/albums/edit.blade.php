@@ -17,7 +17,7 @@
             {!! Form::close() !!}
         </div>
         <div class="col-md-8">
-            <h2>Aregar Fotos</h2>
+            <h2>Agregar Fotos</h2>
             {!! Form::open(['route' => ['admin.albums.photo',$album], 'id' => 'photos-form', 'class' => 'dropzone', 'files' => true]) !!}
             <div class="dz-message" data-dz-message><span>Arrastre sus fotos</span></div>
             {!! Form::close() !!}
@@ -58,6 +58,7 @@
                 this.on('error', function( e ){
                     console.log('erors and stuff');
                     console.log( e );
+                    alert(e);
                 });
                 this.on("complete", function (file) {
                     if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
