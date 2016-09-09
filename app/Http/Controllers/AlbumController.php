@@ -63,20 +63,23 @@ class AlbumController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Album $album
+     * @param $id
      * @return \Illuminate\Http\Response
+     * @internal param Album $album
      * @internal param int $id
      */
-    public function show(Album $album)
+    public function show($id)
     {
+        $album = Album::findOrFail($id);
         return view('albums.show', compact('album'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Album $album
+     * @param $id
      * @return \Illuminate\Http\Response
+     * @internal param Album $album
      * @internal param int $id
      */
     public function edit($id)

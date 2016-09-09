@@ -29,7 +29,7 @@
                         {{$album->description}}
                     </div>
                     <div class="col-md-4 text-right">
-                        <a href="{{route('admin.albums.show',$album)}}" class="btn btn-sm btn-info">
+                        <a href="{{route('admin.albums.show',$album->id)}}" class="btn btn-sm btn-info">
                             <i class="fa fa-eye" aria-hidden="true"></i>
                             Ver
                         </a>
