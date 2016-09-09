@@ -24,4 +24,21 @@ class Album extends Model
     {
         return ($this->visibility ? 'oculto' : 'publico');
     }
+
+    /**
+     * @param File $photos
+     * @return Model
+     */
+    public function addPhoto(File $photos)
+    {
+        return $this->photos()->save($photos);
+    }
+
+    /**
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
